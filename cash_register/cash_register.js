@@ -47,5 +47,23 @@ function addItem(price, title, quantity) {
 function updateSubTotal() {
 // Refactor this using our helper functions :D
   var subTotalPrice = 0; // !! That won't do! Calculate the actual subtotal.
-  $subTotal.text("$" + price); 
+  var stor = [];
+  myUtils.myEach(line_items, function(v,i){
+    stor.push(myUtils.toDollarAmount(v.price*v.qty));
+  });
+  stor.reduce(function(v,g){
+  return subTotalPrice = v + g;
+  });
+  $subTotal.text("$" + subTotalPrice); 
+  salesTax = myUtils.toDollarAmount(subTotalPrice * .00725)
+  $('#salestax').text("$" + salesTax);
+  var total = subTotalPrice + salesTax;
+  $('#total').text("$" + total);
 }
+
+
+
+
+
+
+
