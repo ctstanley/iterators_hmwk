@@ -27,13 +27,13 @@
     }
 
 
-    myUtils.myReduce = function myReduce(arr){
+    myUtils.myReduce = function myReduce(arr, sum){
       var len = arr.length;
-      var val = val || 0;
-      for(var i=0; i< len - 1; i++){
-         val = arr[i] + arr[i + 1];
-      }
-      return val;
+      //var sum = 0;
+      for(var i = 0; i < len; i++){
+      sum += arr[i];
+    }
+      return sum;
   }
 
     
@@ -49,6 +49,9 @@
         return curr + myUtils.toDollarAmount(cash)
     }
     
+
+
+
 }.call(this))
 
 
